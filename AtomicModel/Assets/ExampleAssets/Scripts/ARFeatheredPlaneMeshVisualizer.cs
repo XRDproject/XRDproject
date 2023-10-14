@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-
 /// <summary>
 /// This plane visualizer demonstrates the use of a feathering effect
 /// at the edge of the detected plane, which reduces the visual impression
