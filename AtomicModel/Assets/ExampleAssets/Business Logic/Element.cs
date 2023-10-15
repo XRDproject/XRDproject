@@ -7,11 +7,11 @@ namespace ExampleAssets.Business_Logic
         public string Name { get; set; }
         public string Appearance { get; set; }
         public double AtomicMass { get; set; }
-        public double Boil { get; set; }
+        public double? Boil { get; set; }
         public string Category { get; set; }
-        public double Density { get; set; }
+        public double? Density { get; set; }
         public string DiscoveredBy { get; set; }
-        public double Melt { get; set; }
+        public double? Melt { get; set; }
         public double MolarHeat { get; set; }
         public string NamedBy { get; set; }
         public int Number { get; set; }
@@ -48,6 +48,6 @@ namespace ExampleAssets.Business_Logic
 
     public class ElementList
     {
-        public List<Element> Elements { get; set; }
+        public Element[] elements { get; set; }
     }
 }

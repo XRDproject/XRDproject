@@ -1,7 +1,12 @@
 using System;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace ExampleAssets.Business_Logic
 {
@@ -11,17 +16,16 @@ namespace ExampleAssets.Business_Logic
         public JsonParser()
         {
             string jsonString = LoadJsonFile("./ExampleAssets/Business Logic/PeriodicTableJSON.json");
-            _elementList = JsonConvert.DeserializeObject<ElementList>(jsonString);
-
+             _elementList = JsonConvert.DeserializeObject<ElementList>(jsonString);
         }
-        
+
         public Element GetElementByName(string elementName)
         {
-            return _elementList.Elements.FirstOrDefault(elementToFind => elementToFind.Name == elementName);
+            return _elementList.elements.FirstOrDefault(elementToFind => elementToFind.Name == elementName);
         }
-        public ElementList GetAllElements()
+        public Element[] GetAllElements()
         {
-            return _elementList;
+            return _elementList.elements;
         }
         private string LoadJsonFile(string relativePath)
         {
