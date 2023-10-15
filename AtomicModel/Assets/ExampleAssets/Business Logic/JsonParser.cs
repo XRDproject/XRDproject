@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
 
@@ -13,7 +14,16 @@ namespace ExampleAssets.Business_Logic
         public JsonParser()
         {
             string jsonString = LoadJsonFile("./ExampleAssets/Business Logic/PeriodicTableJSON.json");
-             _elementList = JsonConvert.DeserializeObject<ElementList>(jsonString);
+            //DefaultContractResolver contractResolver = new DefaultContractResolver
+            //{
+            //    NamingStrategy = new SnakeCaseNamingStrategy()
+            //};
+            //_elementList = JsonConvert.DeserializeObject<ElementList>(jsonString, new JsonSerializerSettings
+            // {
+            //     ContractResolver = contractResolver
+            // });
+            _elementList = JsonConvert.DeserializeObject<ElementList>(jsonString);
+
         }
 
         public Element GetElementByName(string elementName)

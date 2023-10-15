@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace ExampleAssets.Business_Logic
 {
@@ -20,6 +21,8 @@ namespace ExampleAssets.Business_Logic
         public string Phase { get; set; }
         public string Source { get; set; }
         public string BohrModelImage { get; set; }
+
+        [JsonProperty("bohr_model_3d")]
         public string BohrModel3D { get; set; }
         public string SpectralImg { get; set; }
         public string Summary { get; set; }
