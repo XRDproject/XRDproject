@@ -10,6 +10,9 @@ public class SceneLoader : MonoBehaviour
         JsonParser jsonParser = new JsonParser();
         Element hydrogen = jsonParser.GetElementByName("Hydrogen");
         Debug.Log(jsonParser.GetElementByName("Hydrogen"));
+        ModelLoader loader = new ModelLoader();
+        Debug.Log(hydrogen.BohrModel3D.ToString());
+        loader.DownloadFile(hydrogen.BohrModel3D.ToString());
     }
 
     // Update is called once per frame
