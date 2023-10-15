@@ -60,24 +60,8 @@ public class ModelLoader : MonoBehaviour
         importSettings.animationSettings.useLegacyClips = true;
         GameObject model = Importer.LoadFromFile(path, importSettings, out animationClips);
         centerGameObject(model, Camera.main);
-        // Setup animation, if there is any.
         if (animationClips.Length > 0)
         {
-            //Animator animatorComponent = model.gameObject.AddComponent<Animator>();
-            //AnimatorOverrideController gltfAnimatorOverride = new AnimatorOverrideController();
-
-            //for (int i = 0; i < animationClips.Length; ++i)
-            //{
-            //    gltfAnimatorOverride["test"] = animationClips[i];
-            //}
-            //animatorComponent.runtimeAnimatorController = gltfAnimatorOverride;
-            //Animation anim = model.AddComponent<Animation>();
-            //animationClips[0].legacy = true;
-            //anim.AddClip(animationClips[0], animationClips[0].name);
-            //anim.wrapMode = WrapMode.Loop;
-            //anim.Play(animationClips[0].name);
-
-
             Animation animation = model.AddComponent<Animation>();
             animationClips[0].legacy = true;
             animation.AddClip(animationClips[0], animationClips[0].name);
@@ -85,13 +69,8 @@ public class ModelLoader : MonoBehaviour
             animation.Play();
             animation.wrapMode = WrapMode.Loop;
         }
-        //GameObject model2 = Importer.LoadFromFile(path);
-        //model.transform.SetParent(wrapper.transform);
-        //model.transform.Translate(wrapper.transform.position);
-        //model2.transform.localScale = Vector3.one;
-        //model2.transform.localScale = new Vector3(3.1f, 3.1f, 3.1f);
     }
-    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 2.6f)
+    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 2.1f)
     {
         gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
         gameOBJToCenter.transform.SetParent(wrapper.transform);
