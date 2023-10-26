@@ -1,6 +1,7 @@
 using ExampleAssets.Business_Logic;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,15 +12,14 @@ public class CreateText : MonoBehaviour
     GameObject wrapper;
     [SerializeField]
     SceneLoader sceneLoader;
+    [SerializeField]
+     TextMeshPro description;
 
-    public void LoadDescription(Image image)
+
+    public void LoadDescription()
     {
-        var Name = image.sprite.name[(image.sprite.name.LastIndexOf('-') + 1)..];
-        Debug.Log(Name);
-        Element element = jsonParser.GetElementByName(Name);
-       // loader.DownloadFile(.element.Summary);
-        Debug.Log(element.Summary);
-        //centerGameObject(model, Camera.main);
+        Debug.Log(sceneLoader.element.Summary);
+        description.SetText(sceneLoader.element.Summary);
     }
     void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 2.1f)
     {
@@ -37,7 +37,9 @@ public class CreateText : MonoBehaviour
         {
             name = "Description"
         };
+
     }
+
 
     // Update is called once per frame
     void Update()
