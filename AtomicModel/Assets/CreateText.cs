@@ -15,12 +15,13 @@ public class CreateText : MonoBehaviour
         var Name = image.sprite.name[(image.sprite.name.LastIndexOf('-') + 1)..];
         Debug.Log(Name);
         Element element = jsonParser.GetElementByName(Name);
-        loader.DownloadFile(element.Summary);
+       // loader.DownloadFile(.element.Summary);
         Debug.Log(element.Summary);
+        //centerGameObject(model, Camera.main);
     }
     void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 2.1f)
     {
-        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
+        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(-3f, 2f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
         gameOBJToCenter.transform.SetParent(wrapper.transform);
         gameOBJToCenter.transform.localScale = new Vector3(3, 3, 3);
 
