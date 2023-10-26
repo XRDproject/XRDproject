@@ -7,17 +7,12 @@ public class SceneLoader : MonoBehaviour
 {
     JsonParser jsonParser;
     ModelLoader loader;
+    public Element element;
     // Start is called before the first frame update
     void Start()
     {
         jsonParser = new JsonParser();
         loader = GetComponent<ModelLoader>();
-
-        //Element element = jsonParser.GetElementByName("Hydrogen");
-        //Debug.Log(element);
-        //ModelLoader loader = GetComponent<ModelLoader>();
-        //Debug.Log(element.BohrModel3D);
-        //loader.DownloadFile(element.BohrModel3D);
     }
 
     // Update is called once per frame
@@ -30,7 +25,7 @@ public class SceneLoader : MonoBehaviour
     {
         var Name = image.sprite.name[(image.sprite.name.LastIndexOf('-') + 1)..];
         Debug.Log(Name);
-        Element element = jsonParser.GetElementByName(Name);
+        element = jsonParser.GetElementByName(Name);
         loader.DownloadFile(element.BohrModel3D);
         Debug.Log(element.BohrModel3D);
     }
