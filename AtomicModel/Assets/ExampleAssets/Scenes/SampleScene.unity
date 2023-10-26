@@ -3944,7 +3944,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 491698746}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1352844495}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadModel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 491698746}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &491698746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4476,7 +4488,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 538963851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1352844495}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadModel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 538963851}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &538963851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10649,7 +10673,7 @@ GameObject:
   - component: {fileID: 1352844496}
   - component: {fileID: 1352844495}
   m_Layer: 0
-  m_Name: Empty
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14876,7 +14900,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 782628376}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.03174603
+  m_Size: 0.031746034
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

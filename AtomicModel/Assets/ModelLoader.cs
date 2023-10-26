@@ -21,6 +21,8 @@ public class ModelLoader : MonoBehaviour
     }
     public void DownloadFile(string url)
     {
+        Debug.Log("Try");
+
         string path = GetFilePath(url);
         if (File.Exists(path))
         {

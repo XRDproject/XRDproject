@@ -13,15 +13,7 @@ namespace ExampleAssets.Business_Logic
       private  ElementList _elementList;
         public JsonParser()
         {
-            string jsonString = LoadJsonFile("./ExampleAssets/Business Logic/PeriodicTableJSON.json");
-            //DefaultContractResolver contractResolver = new DefaultContractResolver
-            //{
-            //    NamingStrategy = new SnakeCaseNamingStrategy()
-            //};
-            //_elementList = JsonConvert.DeserializeObject<ElementList>(jsonString, new JsonSerializerSettings
-            // {
-            //     ContractResolver = contractResolver
-            // });
+            string jsonString = Resources.Load<TextAsset>("PeriodicTableJSON").text;
             _elementList = JsonConvert.DeserializeObject<ElementList>(jsonString);
 
         }
@@ -34,27 +26,6 @@ namespace ExampleAssets.Business_Logic
         {
             return _elementList.elements;
         }
-        private string LoadJsonFile(string relativePath)
-        {
-            string filePath = System.IO.Path.Combine(Application.dataPath, relativePath);
-
-            try
-            {
-                if (System.IO.File.Exists(filePath))
-                {
-                    return System.IO.File.ReadAllText(filePath);
-                }
-                else
-                {
-                    Debug.LogError($"File not found at path: {filePath}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error loading JSON file: {ex.Message}");
-            }
-
-            return null;
-        }
+     
     }
 }
