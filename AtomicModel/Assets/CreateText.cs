@@ -9,6 +9,8 @@ public class CreateText : MonoBehaviour
     JsonParser jsonParser;
     ModelLoader loader;
     GameObject wrapper;
+    [SerializeField]
+    SceneLoader sceneLoader;
 
     public void LoadDescription(Image image)
     {
