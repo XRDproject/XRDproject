@@ -8,13 +8,17 @@ namespace ExampleAssets.Business_Logic
     {
         public string Name { get; set; }
         [CanBeNull] public string Appearance { get; set; }
+        [JsonProperty("atomic_mass")]
         public double AtomicMass { get; set; }
         public double? Boil { get; set; }
         public string Category { get; set; }
         public double? Density { get; set; }
+        [JsonProperty("discovered_by")]
         public string DiscoveredBy { get; set; }
         public double? Melt { get; set; }
+        [JsonProperty("molar_heat")]
         public double? MolarHeat { get; set; }
+        [JsonProperty("named_by")]
         [CanBeNull] public string NamedBy { get; set; }
         public int Number { get; set; }
         public int Period { get; set; }
@@ -32,6 +36,7 @@ namespace ExampleAssets.Business_Logic
         public int Wxpos { get; set; }
         public int Wypos { get; set; }
         public int[] Shells { get; set; }
+        [JsonProperty("electron_configuration")]
         public string ElectronConfiguration { get; set; }
         public string ElectronConfigurationSemantic { get; set; }
         public double? ElectronAffinity { get; set; }
