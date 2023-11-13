@@ -50,9 +50,11 @@ public class CreateText : MonoBehaviour
         }
         centerGameObject(instantiatedPrefab, Camera.main);
     }
-    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 2.1f)
+    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 7.1f)
     {
-        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(7f, 3f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
+        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(0.70f, 0.70f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
+        gameOBJToCenter.transform.LookAt(Camera.main.transform);
+        gameOBJToCenter.transform.Rotate(0,180,0 );
     }
     void Start()
     {   cultureInfo = new CultureInfo("en-US");
