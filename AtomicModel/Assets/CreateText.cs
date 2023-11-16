@@ -50,9 +50,9 @@ public class CreateText : MonoBehaviour
         }
         centerGameObject(instantiatedPrefab, Camera.main);
     }
-    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 7.1f)
+    void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 7.7f)
     {
-        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(0.70f, 0.70f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
+        gameOBJToCenter.transform.position = cameraToCenterOBjectTo.ViewportToWorldPoint(new Vector3(1.8f, 0.5f, cameraToCenterOBjectTo.nearClipPlane + zOffset));
         gameOBJToCenter.transform.LookAt(Camera.main.transform);
         gameOBJToCenter.transform.Rotate(0,180,0 );
     }
@@ -65,17 +65,17 @@ public class CreateText : MonoBehaviour
         {
             Camera eventCamera = Camera.main; 
             canvas.worldCamera = eventCamera;
-            _image = canvas.transform.Find("Background/Image").GetComponent<Image>();
-            name = canvas.transform.Find("Background/Name").GetComponent<TextMeshPro>();
-            category = canvas.transform.Find("Background/Category").GetComponent<TextMeshPro>();
-            appearance = canvas.transform.Find("Background/Appearance").GetComponent<TextMeshPro>();
-            atomicMass = canvas.transform.Find("Background/Atomic Mass").GetComponent<TextMeshPro>();
-            electronConfiguration = canvas.transform.Find("Background/Electron Configuration").GetComponent<TextMeshPro>();
-            meltingPoint = canvas.transform.Find("Background/Melting Point").GetComponent<TextMeshPro>();
-            boilingPoint = canvas.transform.Find("Background/Boiling Point").GetComponent<TextMeshPro>();
-            density = canvas.transform.Find("Background/Density").GetComponent<TextMeshPro>();
-            discoveredBy = canvas.transform.Find("Background/Discovered By").GetComponent<TextMeshPro>();
-            description = canvas.transform.Find("Background/Summary").GetComponent<TextMeshPro>();
+            _image = canvas.transform.Find("Image").GetComponent<Image>();
+            name = canvas.transform.Find("Name").GetComponent<TextMeshPro>();
+            category = canvas.transform.Find("Category").GetComponent<TextMeshPro>();
+            appearance = canvas.transform.Find("Appearance").GetComponent<TextMeshPro>();
+            atomicMass = canvas.transform.Find("Atomic Mass").GetComponent<TextMeshPro>();
+            electronConfiguration = canvas.transform.Find("Electron Configuration").GetComponent<TextMeshPro>();
+            meltingPoint = canvas.transform.Find("Melting Point").GetComponent<TextMeshPro>();
+            boilingPoint = canvas.transform.Find("Boiling Point").GetComponent<TextMeshPro>();
+            density = canvas.transform.Find("Density").GetComponent<TextMeshPro>();
+            discoveredBy = canvas.transform.Find("Discovered By").GetComponent<TextMeshPro>();
+            description = canvas.transform.Find("Summary").GetComponent<TextMeshPro>();
         }
     }
 
