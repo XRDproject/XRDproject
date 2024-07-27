@@ -2,9 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class ButtonColorAnalyzer : MonoBehaviour
+public class ButtonColorAnalyzerWithSound : MonoBehaviour
 {
     public Image backgroundImage; // Reference to the background image
+    public Image sliderImage; // Reference to the slider image
+    public Image handleImage; // Reference to the slider handle image
+    public Image handleImage2; // Reference to the slider handle image
+    public AudioSource audioSource; // Reference to the AudioSource component
+    public AudioClip clickSound; // Reference to the AudioClip for the button click sound
     private List<Button> buttons;
 
     void Start()
@@ -21,6 +26,9 @@ public class ButtonColorAnalyzer : MonoBehaviour
 
     void OnButtonClick(Button clickedButton)
     {
+        // Play the click sound
+        PlayClickSound();
+
         // Get the color of the clicked button's image
         Image buttonImage = clickedButton.GetComponent<Image>();
         if (buttonImage != null && buttonImage.sprite != null && buttonImage.sprite.texture != null)
@@ -34,6 +42,9 @@ public class ButtonColorAnalyzer : MonoBehaviour
 
                 // Change the background image color to match the average color
                 backgroundImage.color = averageColor;
+                sliderImage.color = averageColor;
+                handleImage.color = GetAverageColor(buttonTexture, transparent:false);
+                handleImage2.color = GetAverageColor(buttonTexture, transparent:false);
             }
             else
             {
@@ -42,7 +53,18 @@ public class ButtonColorAnalyzer : MonoBehaviour
         }
     }
 
-    Color GetAverageColor(Texture2D texture)
+    void PlayClickSound()
+    {
+        if (audioSource != null && clickSound != null)
+        {
+            audioSource.PlayOneShot(clickSound);
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or ClickSound not assigned.");
+        }
+    }
+    Color GetAverageColor(Texture2D texture, bool transparent = true)
     {
         Color[] pixels = texture.GetPixels();
         float r = 0, g = 0, b = 0, a = 0.4f; //set some transparency
@@ -55,6 +77,16 @@ public class ButtonColorAnalyzer : MonoBehaviour
         }
 
         float totalPixels = pixels.Length;
-        return new Color(r / totalPixels, g / totalPixels, b / totalPixels, a);
+
+        if (transparent)
+        {
+            return new Color(r / totalPixels, g / totalPixels, b / totalPixels, a);
+
+        }
+        else
+        {
+            return new Color(r / totalPixels, g / totalPixels, b / totalPixels);
+        }
+
     }
 }

@@ -9,6 +9,7 @@ public class ModelLoader : MonoBehaviour
 {
     GameObject wrapper;
     string filePath;
+    public ScaleManager scaleManager;
 
     private void Awake()
     {
@@ -60,6 +61,7 @@ public class ModelLoader : MonoBehaviour
         importSettings.animationSettings.useLegacyClips = true;
         GameObject model = Importer.LoadFromFile(path, importSettings, out animationClips);
         centerGameObject(model, Camera.main);
+        scaleManager.SetModel(model);
         if (animationClips.Length > 0)
         {
             Animation animation = model.AddComponent<Animation>();

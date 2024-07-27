@@ -33,15 +33,11 @@ public class CreateText : MonoBehaviour
         name.SetText(sceneLoader.element.Name);
         category.SetText(sceneLoader.element.Category);
         appearance.SetText(sceneLoader.element.Appearance);
-        atomicMass.SetText(sceneLoader.element.AtomicMass.ToString(cultureInfo));
+        atomicMass.SetText(CheckText(sceneLoader.element.AtomicMass.ToString(cultureInfo)));
         electronConfiguration.SetText(sceneLoader.element.ElectronConfiguration);
-        if (sceneLoader.element.Melt is null or 0)
-        {
-            meltingPoint.SetText("unknown");
-        }
-        else {meltingPoint.SetText(sceneLoader.element.Melt.ToString());}
-        boilingPoint.SetText(sceneLoader.element.Boil.ToString());
-        density.SetText(sceneLoader.element.Density.ToString());
+        meltingPoint.SetText(CheckText(sceneLoader.element.Melt.ToString()));
+        boilingPoint.SetText(CheckText(sceneLoader.element.Boil.ToString()));
+        density.SetText(CheckText(sceneLoader.element.Density.ToString()));
         discoveredBy.SetText(sceneLoader.element.DiscoveredBy);
         description.SetText(sceneLoader.element.Summary);
         if (instantiatedPrefab != null)
@@ -49,6 +45,7 @@ public class CreateText : MonoBehaviour
             instantiatedPrefab.SetActive(true);
         }
         centerGameObject(instantiatedPrefab, Camera.main);
+        var f = sceneLoader.element.Boil.ToString();
     }
     void centerGameObject(GameObject gameOBJToCenter, Camera cameraToCenterOBjectTo, float zOffset = 7.7f)
     {
@@ -78,6 +75,12 @@ public class CreateText : MonoBehaviour
             description = canvas.transform.Find("Summary").GetComponent<TextMeshPro>();
         }
     }
+
+    string CheckText(object text)
+    {
+        return (string)(text is not null ? text : "unknown");
+    }
+
 
 
     // Update is called once per frame
