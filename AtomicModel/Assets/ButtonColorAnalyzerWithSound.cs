@@ -8,6 +8,7 @@ public class ButtonColorAnalyzerWithSound : MonoBehaviour
     public Image sliderImage; // Reference to the slider image
     public Image handleImage; // Reference to the slider handle image
     public Image handleImage2; // Reference to the slider handle image
+    public Image expandButton; // Reference to the expand button image
     public AudioSource audioSource; // Reference to the AudioSource component
     public AudioClip clickSound; // Reference to the AudioClip for the button click sound
     private List<Button> buttons;
@@ -39,12 +40,14 @@ public class ButtonColorAnalyzerWithSound : MonoBehaviour
             if (buttonTexture.isReadable)
             {
                 Color averageColor = GetAverageColor(buttonTexture);
+                Color averageColorNotTransparent = GetAverageColor(buttonTexture, transparent: false);
 
                 // Change the background image color to match the average color
                 backgroundImage.color = averageColor;
                 sliderImage.color = averageColor;
-                handleImage.color = GetAverageColor(buttonTexture, transparent:false);
-                handleImage2.color = GetAverageColor(buttonTexture, transparent:false);
+                handleImage.color = averageColorNotTransparent;
+                handleImage2.color = averageColorNotTransparent;
+                expandButton.color = averageColorNotTransparent;
             }
             else
             {

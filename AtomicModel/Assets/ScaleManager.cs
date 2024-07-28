@@ -19,8 +19,8 @@ public class ScaleManager : MonoBehaviour
         // Add listener to the slider
         scaleSlider.onValueChanged.AddListener(OnSliderValueChanged);
 
-        // Initially hide the slider
-        scaleSlider.gameObject.SetActive(false);
+        //// Initially hide the slider
+        //SetScaleSlider(false);
     }
 
     public void SetModel(GameObject newModel)
@@ -32,7 +32,12 @@ public class ScaleManager : MonoBehaviour
         currentModel.transform.localScale = initialScale * currentScaleValue;
 
         // Show the slider
-        scaleSlider.gameObject.SetActive(true);
+       SetScaleSlider(true);
+    }
+
+    public void SetScaleSlider(bool active)
+    {
+        scaleSlider.gameObject.SetActive(active);
     }
 
     void OnSliderValueChanged(float value)
