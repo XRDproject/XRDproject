@@ -10,6 +10,7 @@ public class ModelLoader : MonoBehaviour
     GameObject wrapper;
     string filePath;
     public ScaleManager scaleManager;
+    public ScrollViewSwitcher scrollViewSwitcher;
 
     private void Awake()
     {
@@ -55,6 +56,12 @@ public class ModelLoader : MonoBehaviour
 
     void LoadModel(string path)
     {
+        if (scrollViewSwitcher.IsVertical)
+        {
+            //when expanded and clicking a button, toggle the view
+            scrollViewSwitcher.ToggleScrollView();
+        }
+
         ResetWrapper();
         AnimationClip[] animationClips;
         var importSettings = new ImportSettings();
@@ -62,6 +69,7 @@ public class ModelLoader : MonoBehaviour
         GameObject model = Importer.LoadFromFile(path, importSettings, out animationClips);
         centerGameObject(model, Camera.main);
         scaleManager.SetModel(model);
+
         if (animationClips.Length > 0)
         {
             Animation animation = model.AddComponent<Animation>();

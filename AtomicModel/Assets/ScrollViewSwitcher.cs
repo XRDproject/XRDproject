@@ -19,13 +19,18 @@ public class ScrollViewSwitcher : MonoBehaviour
     public ScaleManager scaleManager;
     public Vector2 expandedButtonScale = new Vector2(1.5f, 1.5f); // Scale of the button when expanded
 
-
     private bool isVertical = false;
     private GridLayoutGroup gridLayoutGroup;
     private Vector2 originalSize;
     private Vector2 originalPosition;
     private Vector2 buttonOriginalPosition;
     private Vector2 buttonOriginalScale;
+
+    public bool IsVertical
+    {
+        get { return isVertical; }
+        private set { isVertical = value; }
+    }
 
     void Start()
     {
@@ -58,7 +63,7 @@ public class ScrollViewSwitcher : MonoBehaviour
         buttonOriginalScale = buttonRect.localScale;
     }
 
-    void ToggleScrollView()
+    public void ToggleScrollView()
     {
         Debug.Log("Button clicked!");
 
