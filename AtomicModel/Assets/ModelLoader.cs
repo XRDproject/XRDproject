@@ -10,7 +10,6 @@ public class ModelLoader : MonoBehaviour
     GameObject wrapper;
     string filePath;
     public ScaleManager scaleManager;
-    public ScrollViewSwitcher scrollViewSwitcher;
 
     private void Awake()
     {
@@ -56,11 +55,6 @@ public class ModelLoader : MonoBehaviour
 
     void LoadModel(string path)
     {
-        if (scrollViewSwitcher.IsVertical)
-        {
-            //when expanded and clicking a button, toggle the view
-            scrollViewSwitcher.ToggleScrollView();
-        }
 
         ResetWrapper();
         AnimationClip[] animationClips;

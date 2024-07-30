@@ -36,7 +36,7 @@ public class ScrollViewSwitcher : MonoBehaviour
     {
         if (switchButton != null)
         {
-            switchButton.onClick.AddListener(ToggleScrollView);
+            switchButton.onClick.AddListener(() => ToggleScrollView(!isVertical));
             Debug.Log("Button listener added.");
         }
         else
@@ -63,9 +63,8 @@ public class ScrollViewSwitcher : MonoBehaviour
         buttonOriginalScale = buttonRect.localScale;
     }
 
-    public void ToggleScrollView()
+    public void ToggleScrollView(bool toVertical)
     {
-        Debug.Log("Button clicked!");
 
         if (scrollRect == null || contentRect == null || gridLayoutGroup == null)
         {
@@ -73,7 +72,7 @@ public class ScrollViewSwitcher : MonoBehaviour
             return;
         }
 
-        isVertical = !isVertical;
+        isVertical = toVertical;
 
         AnimateLayoutSwitch();
     }

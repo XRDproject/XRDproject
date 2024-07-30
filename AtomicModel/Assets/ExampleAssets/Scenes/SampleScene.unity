@@ -13398,6 +13398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116a97d0d467c064096022dd337fd918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollViewSwitcher: {fileID: 1352844499}
 --- !u!114 &1352844496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13411,7 +13412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleManager: {fileID: 1352844498}
-  scrollViewSwitcher: {fileID: 1352844499}
 --- !u!114 &1352844497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19142,8 +19142,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 782628377}
   m_HandleRect: {fileID: 782628376}
   m_Direction: 0
-  m_Value: -0.00000011085963
-  m_Size: 0.031871635
+  m_Value: -0.000000110859645
+  m_Size: 0.03187164
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
