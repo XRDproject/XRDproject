@@ -2503,7 +2503,7 @@ GameObject:
   - component: {fileID: 5911091254652125010}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CardBackground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

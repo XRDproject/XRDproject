@@ -57,10 +57,9 @@ public class ModelLoader : MonoBehaviour
     {
 
         ResetWrapper();
-        AnimationClip[] animationClips;
         var importSettings = new ImportSettings();
         importSettings.animationSettings.useLegacyClips = true;
-        GameObject model = Importer.LoadFromFile(path, importSettings, out animationClips);
+        GameObject model = Importer.LoadFromFile(path, importSettings, out AnimationClip[] animationClips);
         centerGameObject(model, Camera.main);
         scaleManager.SetModel(model);
 

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace ExampleAssets.Business_Logic
@@ -7,7 +5,7 @@ namespace ExampleAssets.Business_Logic
     public class Element
     {
         public string Name { get; set; }
-        [CanBeNull] public string Appearance { get; set; }
+        public string? Appearance { get; set; }
         [JsonProperty("atomic_mass")]
         public double AtomicMass { get; set; }
         public double? Boil { get; set; }
@@ -19,7 +17,7 @@ namespace ExampleAssets.Business_Logic
         [JsonProperty("molar_heat")]
         public double? MolarHeat { get; set; }
         [JsonProperty("named_by")]
-        [CanBeNull] public string NamedBy { get; set; }
+        public string? NamedBy { get; set; }
         public int Number { get; set; }
         public int Period { get; set; }
         public int Group { get; set; }
@@ -28,7 +26,7 @@ namespace ExampleAssets.Business_Logic
         public string BohrModelImage { get; set; }
         [JsonProperty("bohr_model_3d")]
         public string BohrModel3D { get; set; }
-        [CanBeNull] public string SpectralImg { get; set; }
+        public string? SpectralImg { get; set; }
         public string Summary { get; set; }
         public string Symbol { get; set; }
         public int Xpos { get; set; }

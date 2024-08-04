@@ -9,17 +9,11 @@ public class SceneLoader : MonoBehaviour
     ModelLoader loader;
     public Element element;
     public ScrollViewSwitcher scrollViewSwitcher;
-    // Start is called before the first frame update
+
     void Start()
     {
         jsonParser = new JsonParser();
         loader = GetComponent<ModelLoader>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void LoadModel(Image image)

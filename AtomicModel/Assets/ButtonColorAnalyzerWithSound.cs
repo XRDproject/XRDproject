@@ -9,6 +9,7 @@ public class ButtonColorAnalyzerWithSound : MonoBehaviour
     public Image handleImage; // Reference to the slider handle image
     public Image handleImage2; // Reference to the slider handle image
     public Image expandButton; // Reference to the expand button image
+    public Image cardBgImage; //Card 
     public AudioSource audioSource; // Reference to the AudioSource component
     public AudioClip clickSound; // Reference to the AudioClip for the button click sound
     private List<Button> buttons;
@@ -48,6 +49,13 @@ public class ButtonColorAnalyzerWithSound : MonoBehaviour
                 handleImage.color = averageColorNotTransparent;
                 handleImage2.color = averageColorNotTransparent;
                 expandButton.color = averageColorNotTransparent;
+
+                var tmpCard = GameObject.FindGameObjectWithTag("CardBackground");
+                tmpCard.TryGetComponent(out cardBgImage);
+                 if (cardBgImage != null)
+                {
+                    cardBgImage.color = averageColor;
+                }
             }
             else
             {
